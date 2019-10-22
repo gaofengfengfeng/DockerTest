@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  driver-class-name: com.mysql.jdbc.Driver
+  type: com.zaxxer.hikari.HikariDataSource
+  hikari:
+      pool-name: FundsourceHikari
+      auto-commit: true
+      minimum-idle: 5
+      maximum-pool-size: 10
+      idle-timeout: 300000
+      max-lifetime: 600000
+      connection-timeout: 5000
+      validation-timeout: 5000
+      connection-test-query: SELECT 1
+      transaction-isolation: TRANSACTION_REPEATABLE_READ
+  datasource:
+    url: jdbc:mysql://123.56.17.196:3307/mytest?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: root
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.test.dockertest.mapper
+  configuration:
+    cache-enabled: false
+    default-executor-type: REUSE
